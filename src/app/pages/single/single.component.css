@@ -1,0 +1,623 @@
+:root {
+  --card-height: 300px;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #191c29;
+}
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+  border-radius: 15px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0080c0 0%, #004080 100%); 
+  animation: oceanAnimation 10s linear infinite alternate-reverse;
+}
+
+@keyframes oceanAnimation {
+  0% {
+      background-position: 0% 0%;
+  }
+  100% {
+      background-position: 0% 100%;
+  }
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #1a5276; /* Ocean blue color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+  opacity: 0.9;
+}
+
+.card:hover .card-image {
+  transform: scale(1.2);
+}
+
+
+.card-image {
+  height: 70%;
+  background-image: url('https://insideclimatenews.org/wp-content/uploads/2023/01/ocean_brian-bielmann-afp-getty-scaled.jpg'); 
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+      transform: scale(1.1);
+  }
+}
+
+.card-text {
+  padding: 20px;
+  text-align: center;
+  color: #ecf0f1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-text {
+  transform: translate(0, -10px);
+}
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+
+.card:hover .card-text {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-image {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+background: linear-gradient(to bottom right, #630ad6, #8e44ad);
+font-family: Arial, sans-serif;
+}
+
+.card {
+width: 350px;
+height: 250px;
+background: linear-gradient(to bottom right, #4805a0, #1a1713);
+border-radius: 20px;
+box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+}
+
+.card-content {
+text-align: bottom;
+color: #fff;
+padding: -10px;
+}
+
+.card:hover {
+transform: scale(1.1);
+box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5);
+animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+100% {
+    transform: rotate(360deg);
+}
+}
+
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+/*========== Colors ==========*/
+--text-color: #000000;
+--bg-color: #222222;
+
+/*========== Font and typography ==========*/
+--body-font: "Poppins", sans-serif;
+--normal-font-size: 0.938rem;
+}
+
+@media screen and (min-width: 968px) {
+:root {
+  --normal-font-size: 1rem;
+}
+}
+
+/*==================== BASE ====================*/
+*,
+*:after,
+*:before {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+body {
+font-size: var(--normal-font-size);
+background-color: var(--bg-color);
+color: var(--text-color);
+font-weight: 400;
+font-family: var(--body-font);
+transition: all 0.2s ease;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+.container {
+max-width: 1140px;
+width: 100%;
+margin: 0 auto;
+padding: 3rem 0;
+min-height: 100vh;
+display: grid;
+place-items: center;
+}
+
+/*==================== SERVICE CARD ====================*/
+.card__container {
+display: flex;
+flex-wrap: wrap;
+gap: 60px;
+justify-content: center;
+width: 100%;
+max-width: 90%;
+margin: auto;
+padding: 60px 0;
+}
+.card__bx {
+--dark-color: #2e2e2e;
+--dark-alt-color: #777777;
+--white-color: #ffffff;
+--button-color: #333333;
+--transition: 0.5s ease-in-out;
+
+font-family: inherit;
+height: 350px;
+width: 300px;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+background: var(--dark-color);
+transition: var(--transition);
+}
+.card__bx::before,
+.card__bx::after {
+content: "";
+position: absolute;
+z-index: -1;
+transition: var(--transition);
+}
+.card__bx::before {
+inset: -10px 50px;
+border-top: 4px solid var(--clr);
+transform: skewY(15deg);
+border-bottom: 4px solid var(--clr);
+}
+.card__bx:hover::before {
+inset: -10px 40px;
+transform: skewY(0deg);
+}
+.card__bx::after {
+inset: 60px -10px;
+border-left: 4px solid var(--clr);
+transform: skew(15deg);
+border-right: 4px solid var(--clr);
+}
+.card__bx:hover::after {
+inset: 40px -10px;
+transform: skew(0deg);
+}
+.card__bx .card__data {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: bottom;
+flex-direction: column;
+gap: 30px;
+text-align: center;
+padding: 0 20px;
+height:50%;
+width: 500%;
+overflow: hidden;
+}
+.card__bx .card__data .card__icon {
+height: 80px;
+width: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 3rem;
+color: var(--text-color);
+background-color: var(--dark-color);
+transition: var(--transition);
+}
+.card__bx .card__data .card__icon {
+color: var(--clr);
+box-shadow: 0 0 0 4px var(--dark-color), 0 0 0 6px var(--clr);
+}
+.card__bx:hover .card__data .card__icon {
+color: var(--dark-color);
+background-color: var(--clr);
+box-shadow: 0 0 0 4px var(--dark-color), 0 0 0 300px var(--clr);
+}
+.card__bx .card__data .card__content {
+display: flex;
+justify-content: center;
+align-items: bottom;
+flex-direction: column;
+gap: 10px;
+}
+.card__bx .card__data h3 {
+font-size: 1.5rem;
+font-weight: 500;
+color: var(--white-color);
+transition: var(--transition);
+}
+.card__bx:hover .card__data h3 {
+color: var(--dark-color);
+transition: var(--transition);
+}
+.card__bx .card__data p {
+font-size: 0.9rem;
+color: var(--dark-alt-color);
+transition: var(--transition);
+}
+.card__bx:hover .card__data p {
+color: var(--dark-color);
+transition: var(--transition);
+}
+.card__bx .card__data a {
+position: relative;
+display: inline-flex;
+padding: 8px 15px;
+text-decoration: none;
+font-weight: 500;
+margin-top: 10px;
+border: 2px solid var(--clr);
+color: var(--dark-color);
+background-color: var(--clr);
+transition: var(--transition);
+}
+.card__bx:hover .card__data a {
+color: var(--clr);
+background-color: var(--dark-color);
+}
+.card__bx:hover .card__data a:hover {
+border-color: var(--dark-color);
+color: var(--dark-color);
+background-color: var(--clr);
+}
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+flex-direction: row;
+flex-wrap: wrap;
+
+}
+.burger-menu {
+   padding: 20px;
+}
+.burger-menu h2,p{
+    text-align: center;
+   
+}
+.burger-menu p{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.items{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.item{
+    width: 48%;
+    height: 320px;
+    position: relative;
+}
+.item-details{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+    color: #8a0783;
+}
+.item-details .item-name{
+    font-size: 30px;
+}
+.item-details .item-price{
+    font-size: 24px;
+}
+.item .burger-bg{
+    width: 100%;
+    height: 100%;
+}
+.buy-now-btn{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background-color: red;
+    text-align: center;
+    padding: 12px 26px;
+    border-radius: 20px;
+
+}
+
+
+
+
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0080c0 0%, #004080 100%); 
+  animation: oceanAnimation 10s linear infinite alternate-reverse;
+}
+
+@keyframes oceanAnimation {
+  0% {
+      background-position: 0% 0%;
+  }
+  100% {
+      background-position: 0% 100%;
+  }
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #1a5276; /* Ocean blue color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+  opacity: 0.9;
+}
+
+.card:hover .card-image {
+  transform: scale(1.2);
+  align-items: center;
+}
+
+
+.card-image {
+  height: 60%;
+  background-image: url('https://insideclimatenews.org/wp-content/uploads/2023/01/ocean_brian-bielmann-afp-getty-scaled.jpg'); 
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+      transform: scale(1.1);
+  }
+}
+
+.card-text {
+  padding: 20px;
+  text-align: center;
+  color: #080808;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-text {
+  transform: translate(0, -10px);
+}
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+
+.card:hover .card-text {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-image {
+  box-shadow: 0 5px 10px rgba(212, 212, 212, 0.5);
+}
+
+
